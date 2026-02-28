@@ -59,17 +59,5 @@ public class EmployeeController {
         return repo.findByName(name);
     }
 
-    @PutMapping("/update-salary/{oldsalary}/{newsalary}")
-    public String updateBySalary(@PathVariable double oldsalary,
-                                 @PathVariable double newsalary){
-        int count=repo.updateBySalary(oldsalary, newsalary);
-        if(count>0){
-            return "Updated";
-        }
-        else{
-            throw new EmployeeNotFoundException("Employee Not found with salary: "+oldsalary);
-        }
-    }
-
 
 }
